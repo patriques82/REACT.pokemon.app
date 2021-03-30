@@ -1,52 +1,44 @@
 import React ,{useEffect, useState} from "react";
 
 
-
 const Mypokemon = (props) => {
-  
+ 
+
   const linkHandler=()=>{
   props.setView('viewpokemon')
+  props.setNextUrl(props.url)
   
   }
-
-  useEffect(()=>{
-    const fetchPokeData = async ()=>{
-    const responseTwo = await fetch (props.url)
-    const pokemonData = await responseTwo.json()
-    
-   
-    props.setPokemonData({
-      species:pokemonData.species.name,
-      sprites:pokemonData.sprites.front_default
-    
-    
-    
-    })
-
-    }
-   
-    fetchPokeData()
-    
-   },[])
+  
+  const removeHandler=()=>{
+    props.removePokemon(props.name)
+  }
 
 
 
  return (
+   
  <li>
-  <img src = '#'/>
-  <a href='#'onClick= {linkHandler}>{props.name}</a>
+  <img src = 'logopokemon.png' style={{width:50, height:40}}/>
+  <a href='#'onClick= {linkHandler} >{props.name}</a>
+  <button onClick={removeHandler} className="buttonRemove">X</button>
+  
   </li>
+  
  )};
 
 
 const  Mypokemons=(props) =>{
   return (
-    <ul>
+    
+    <ul className="pokelist">
         {props.fullList.map((poke, index) => (
-        <Mypokemon key={index} name={poke.name} url={poke.url}  setView={props.setView} setPokemonData={props.setPokemonData}/>
+        <Mypokemon key={index} name={poke.name} url={poke.url} 
+         setView={props.setView} setNextUrl={props.setNextUrl} img={props.img} imgState={props.imgState} nextUrl={props.nextUrl} removePokemon={props.removePokemon}/>
     
       ))}
     </ul>
+   
   );
 };
 

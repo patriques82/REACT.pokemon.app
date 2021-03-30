@@ -36,7 +36,7 @@ useEffect(()=>{
  
     return (
 
-      <div classNAme="displayPokemon">
+      <div>
        
        <img src = {pokemon.sprites}/>
        <h2>Species: {pokemon.species}</h2>

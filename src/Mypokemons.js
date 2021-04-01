@@ -15,6 +15,7 @@ const Mypokemon = (props) => {
   }
 
 
+  // <img src={props.image ? props.image : 'logopokemon.png'} style={{width:50, height:40}}/>
 
  return (
    
@@ -27,6 +28,9 @@ const Mypokemon = (props) => {
   
  )};
 
+// Tidigare poke = {url, name}
+// Nu poke = {url, name, image}
+// <Mypokemon img={poke.image} />
 
 const  Mypokemons=(props) =>{
   return (

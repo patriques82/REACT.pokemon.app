@@ -27,7 +27,12 @@ useEffect(()=>{
         type:pokemonData.types[0].type.name
       
       })
-    
+      props.setFullList(prevFullList => {
+          // const pikachu = prevFullList[pikachuIndex] {url, namn}
+          // pikachu.image = pokemonData.sprites.front_default; {url, namn, image}
+          // prevFullList[pikachuIndex] = pikachu
+          // return prevFullList
+      })
     }
    
     fetchPokeData()
